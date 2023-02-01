@@ -1,12 +1,24 @@
 //References to document objects to receive input from and modify
 const customName = document.getElementById('customname');
-const randomize = document.querySelector('randomize');
-const story = document.querySelector('story');
+const randomize = document.querySelector('.randomize');
+const story = document.querySelector('.story');
 
 //Provides a random index for an array
 function randomValuesFromArray(array) {
     const random = Math.floor(Math.random() * array.length);
     return random;
+}
+
+//Converts temperatures in fahrenheit to celsius
+function convertFahrenheitToCelsius(fahrenheit) {
+    let celsius = (fahrenheit - 32) * 5 / 9;
+    return celsius;
+}
+
+//Converts weights in pounds to stones
+function convertPoundsToStone (pounds) {
+    let stones = pounds / 14;
+    return stones;
 }
 
 //These store the text used to generate the story
@@ -49,14 +61,4 @@ function result() {
     //Writes the generated story to the hidden paragraph and makes it visible
     story.textContent = newStory;
     story.style.visibility = 'visible';
-}
-
-function convertFahrenheitToCelsius(fahrenheit) {
-    let celsius = (fahrenheit - 32) * 5 / 9;
-    return celsius;
-}
-
-function convertPoundsToStone (pounds) {
-    let stones = pounds / 14;
-    return stones;
 }
